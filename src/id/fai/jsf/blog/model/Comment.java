@@ -12,7 +12,7 @@ public class Comment implements Serializable,Comparable<Comment>{
 	private String name;
 	private String comment;
 	
-	private Date commentDate;
+	private Date commentDate = new Date();
 	
 	public Date getCommentDate() {
 		return commentDate;

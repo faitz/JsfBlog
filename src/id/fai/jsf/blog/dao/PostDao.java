@@ -46,7 +46,7 @@ public class PostDao implements Serializable{
 	
 	public Post getPost(Long id){
 		for(Post post:listPost){
-			if(post.getId() == id){
+			if(post.getId().equals(id)){
 				return post;
 			}
 		}

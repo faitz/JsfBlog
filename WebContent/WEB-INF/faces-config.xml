@@ -15,5 +15,12 @@
 				<property-name>maxResult</property-name>
 				<value>#{param.maxResult}</value>
 			</managed-property>
+		</managed-bean>
+		
+		<managed-bean>
+			<managed-bean-name>postController</managed-bean-name>
+			<managed-bean-class>id.fai.jsf.blog.PostController</managed-bean-class>
+			<managed-bean-scope>view</managed-bean-scope>
+			
 		</managed-bean>              
  </faces-config>             
