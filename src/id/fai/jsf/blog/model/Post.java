@@ -1,7 +1,9 @@
 package id.fai.jsf.blog.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -17,6 +19,7 @@ public class Post implements Serializable,Comparable<Post>{
 	private Date creationDate=new Date();
 	private String username;
 	private SortedSet<Comment> commentList=new TreeSet<Comment>();
+	private List<String> tags = new ArrayList<String>();
 	
 	public Post(String title,String post,String username) {
 		this(title,post,username,new Date());
@@ -74,5 +77,12 @@ public class Post implements Serializable,Comparable<Post>{
 		return creationDate.compareTo(o.creationDate);
 	}
 	
+	public List<String> getTags() {
+		return tags;
+	}
+	
+	public void setTags(List<String> tags) {
+		this.tags = tags;
+	}
 	
 }
