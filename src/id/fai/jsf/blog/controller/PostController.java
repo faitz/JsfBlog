@@ -1,4 +1,4 @@
-package id.fai.jsf.blog;
+package id.fai.jsf.blog.controller;
 
 import id.fai.jsf.blog.dao.PostDao;
 import id.fai.jsf.blog.model.Comment;

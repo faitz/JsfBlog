@@ -9,7 +9,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class Post implements Serializable,Comparable<Post>{
-	
+	public enum Category{ISENG,IT,KODING,KOMPUTER,HOBI}
 	private static final long serialVersionUID = 1L;
 	private final static Random random = new Random();
 	
@@ -20,6 +20,7 @@ public class Post implements Serializable,Comparable<Post>{
 	private String username;
 	private SortedSet<Comment> commentList=new TreeSet<Comment>();
 	private List<String> tags = new ArrayList<String>();
+	private List<Category> categories = new ArrayList<Post.Category>();
 	
 	public Post(String title,String post,String username) {
 		this(title,post,username,new Date());
@@ -74,7 +75,7 @@ public class Post implements Serializable,Comparable<Post>{
 
 	@Override
 	public int compareTo(Post o) {
-		return creationDate.compareTo(o.creationDate);
+		return o.creationDate.compareTo(creationDate);
 	}
 	
 	public List<String> getTags() {
@@ -83,6 +84,14 @@ public class Post implements Serializable,Comparable<Post>{
 	
 	public void setTags(List<String> tags) {
 		this.tags = tags;
+	}
+	
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+	
+	public List<Category> getCategories() {
+		return categories;
 	}
 	
 }

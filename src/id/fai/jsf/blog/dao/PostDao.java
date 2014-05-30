@@ -39,6 +39,10 @@ public class PostDao implements Serializable{
 		return new LinkedList<Post>(listPost).subList(index, endIndex);
 	}
 	
+	public List<Post> listPosts(){
+		return new LinkedList<Post>(listPost);
+	}
+	
 	public void addPost(Post post,String username){
 		post.setUsername(username);
 		listPost.add(post);

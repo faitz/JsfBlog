@@ -13,8 +13,21 @@
 	<ui:define name="content">
 		<h:form>
 			<div class="form-group">
-				<h:outputLabel value="Phone page"></h:outputLabel>
+				<h:outputLabel value="Title" for="title"></h:outputLabel>
+				<h:inputText required="true" value="#{newPostController.post.title}" id="title" styleClass="form-control" />
 			</div>
+			<div class="form-group">
+				<h:outputLabel value="Post" for="post"></h:outputLabel>
+				<h:inputTextarea required="true"  id="post" value="#{newPostController.post.post}" styleClass="form-control" />
+			</div>
+			<div class="form-group">
+			<h:outputLabel value="Categories"></h:outputLabel>
+				<h:selectManyCheckbox layout="pageDirection" value="#{newPostController.selectedCategories}">
+					<f:selectItems value="#{newPostController.categories}"></f:selectItems>
+				</h:selectManyCheckbox>
+			</div>
+			<h:commandButton styleClass="btn btn-default" label="Save" value="Save" action="#{newPostController.save}"></h:commandButton>
+			<h:commandButton styleClass="btn btn-default" immediate="true" value="Cancel" action="index.xhtml"></h:commandButton>
 		</h:form>
 	</ui:define>
 	

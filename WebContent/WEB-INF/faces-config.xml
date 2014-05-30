@@ -3,24 +3,36 @@
               xmlns="http://xmlns.jcp.org/xml/ns/javaee"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+		
+		<application>
+			<locale-config>
+				<default-locale>en</default-locale>
+			</locale-config>
+			<resource-bundle>
+				<base-name>id.fai.jsf.blog.messages</base-name>
+				<var>msg</var>
+			</resource-bundle>
+		</application>              
 		<managed-bean>
 			<managed-bean-name>indexController</managed-bean-name>
-			<managed-bean-class>id.fai.jsf.blog.IndexController</managed-bean-class>
+			<managed-bean-class>id.fai.jsf.blog.controller.IndexController</managed-bean-class>
 			<managed-bean-scope>request</managed-bean-scope>
-			<managed-property>
-				<property-name>firstIndex</property-name>
-				<value>#{param.firstIndex}</value>
-			</managed-property>
-			<managed-property>
-				<property-name>maxResult</property-name>
-				<value>#{param.maxResult}</value>
-			</managed-property>
 		</managed-bean>
 		
 		<managed-bean>
 			<managed-bean-name>postController</managed-bean-name>
-			<managed-bean-class>id.fai.jsf.blog.PostController</managed-bean-class>
+			<managed-bean-class>id.fai.jsf.blog.controller.PostController</managed-bean-class>
 			<managed-bean-scope>view</managed-bean-scope>
-			
-		</managed-bean>              
+		</managed-bean>
+		<managed-bean>
+			<managed-bean-name>newPostController</managed-bean-name>
+			<managed-bean-class>id.fai.jsf.blog.controller.NewPostController</managed-bean-class>
+			<managed-bean-scope>request</managed-bean-scope>
+		</managed-bean>
+		<managed-bean>
+			<managed-bean-name>sessionBean</managed-bean-name>
+			<managed-bean-class>id.fai.jsf.blog.util.SessionBean</managed-bean-class>
+			<managed-bean-scope>session</managed-bean-scope>
+		</managed-bean>               
  </faces-config>             
+ 

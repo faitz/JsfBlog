@@ -8,6 +8,9 @@
 
 <ui:composition template="/WEB-INF/template/mainLayout.xhtml">
 	<ui:define name="content">
+		<f:metadata>
+			<f:viewParam name="firstIndex" value="#{indexController.firstIndex}"></f:viewParam>
+		</f:metadata>
 		<h:form>
 			<h:dataTable value="#{indexController.posts}" var="post" width="100%">
 				<h:column>
@@ -21,6 +24,7 @@
 					</div>
 				</h:column>
 			</h:dataTable>
+			<h:commandButton action="#{indexController.goToPrev}" value="Newest" styleClass="btn btn-primary pull-left"></h:commandButton><h:commandButton value="Oldest" styleClass="btn btn-primary pull-right" action="#{indexController.goToNext}"></h:commandButton>
 		</h:form>
 	</ui:define>
 </ui:composition>
