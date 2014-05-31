@@ -19,7 +19,6 @@ public class Post implements Serializable,Comparable<Post>{
 	private Date creationDate=new Date();
 	private String username;
 	private SortedSet<Comment> commentList=new TreeSet<Comment>();
-	private List<String> tags = new ArrayList<String>();
 	private List<Category> categories = new ArrayList<Post.Category>();
 	
 	public Post(String title,String post,String username) {
@@ -78,13 +77,6 @@ public class Post implements Serializable,Comparable<Post>{
 		return o.creationDate.compareTo(creationDate);
 	}
 	
-	public List<String> getTags() {
-		return tags;
-	}
-	
-	public void setTags(List<String> tags) {
-		this.tags = tags;
-	}
 	
 	public void setCategories(List<Category> categories) {
 		this.categories = categories;
