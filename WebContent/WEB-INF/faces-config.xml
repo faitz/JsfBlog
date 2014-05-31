@@ -20,14 +20,39 @@
 		</managed-bean>
 		
 		<managed-bean>
+			<managed-bean-name>newPageController</managed-bean-name>
+			<managed-bean-class>id.fai.jsf.blog.controller.NewPageController</managed-bean-class>
+			<managed-bean-scope>request</managed-bean-scope>
+		</managed-bean>
+		
+		<managed-bean>
 			<managed-bean-name>postController</managed-bean-name>
 			<managed-bean-class>id.fai.jsf.blog.controller.PostController</managed-bean-class>
 			<managed-bean-scope>view</managed-bean-scope>
 		</managed-bean>
 		<managed-bean>
+			<managed-bean-name>newPostController</managed-bean-name>
+			<managed-bean-class>id.fai.jsf.blog.controller.NewPostController</managed-bean-class>
+			<managed-bean-scope>request</managed-bean-scope>
+		</managed-bean>
+		<managed-bean>
 			<managed-bean-name>sessionBean</managed-bean-name>
 			<managed-bean-class>id.fai.jsf.blog.util.SessionBean</managed-bean-class>
 			<managed-bean-scope>session</managed-bean-scope>
-		</managed-bean>               
+		</managed-bean> 
+		
+		<navigation-rule>
+			<from-view-id>/newpost.xhtml</from-view-id>
+			<navigation-case>
+				<from-action>#{newPostController.save}</from-action>
+				<from-outcome>success</from-outcome>
+				<to-view-id>/index.xhtml</to-view-id>
+			</navigation-case>
+			<navigation-case>
+				<from-action>#{newPostController.save}</from-action>
+				<from-outcome>error</from-outcome>
+				<to-view-id>/newpage.xhtml</to-view-id>
+			</navigation-case>
+		</navigation-rule>              
  </faces-config>             
  

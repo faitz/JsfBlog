@@ -10,12 +10,15 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 
 public class PostController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	private PostDao postDao = PostDao.getInstance();
+	
+	private Comment comment = new Comment();
 	
 	private String postId;
 	
@@ -64,5 +67,17 @@ public class PostController implements Serializable {
 		return post;
 	}
 	
+	public void addComment(ActionEvent event){
+		post.addComment(comment);
+		comment = new Comment();
+	}
+	
+	public Comment getComment() {
+		return comment;
+	}
+	
+	public void setComment(Comment comment) {
+		this.comment = comment;
+	}
 	
 }

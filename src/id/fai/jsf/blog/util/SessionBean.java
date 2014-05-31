@@ -20,7 +20,7 @@ public class SessionBean implements Serializable{
 	
 	static{
 		supportedLanguages.put("English", Locale.ENGLISH);
-		supportedLanguages.put("Indonesia", new Locale("id", "ID"));
+		supportedLanguages.put("Indonesia", new Locale("in", "ID"));
 	}
 
 	public String getLocale() {

@@ -9,9 +9,9 @@
 <ui:composition template="/WEB-INF/template/mainLayout.xhtml">
 
 	<ui:define name="content">
-	<f:metadata>
-		<f:viewParam name="id" value="#{postController.postId}" required="true" requiredMessage="This page required use page"></f:viewParam>
-	</f:metadata>
+		<f:metadata>
+			<f:viewParam name="id" value="#{postController.postId}" required="true" requiredMessage="This page required use page"></f:viewParam>
+		</f:metadata>
 		<h:panelGroup rendered="#{postController.authorized}">
 	    <div class="row">
 						<div class="page-header">
@@ -20,9 +20,37 @@
 						<p><h:outputText value="#{postController.post.post}"></h:outputText></p>
 		</div>
 		<div class="row">
+			<ui:repeat var="cat" value="#{postController.post.categories}">
+				#{cat},
+			</ui:repeat>
+		</div>
 		
+		<div class="row">
+			<h:form>
+				<h:panelGroup id="ajaxComment">
+					<ui:repeat var="comment" value="#{postController.postComments}">
+						<strong><h:outputText value="#{comment.name}"></h:outputText> </strong>
+						<p>
+							<h:outputText value="#{comment.comment}"></h:outputText>
+						</p>
+					</ui:repeat>
+					<hr />
+					<div class="form-group">
+						<h:outputLabel value="#{msg['label.name']}"></h:outputLabel>
+						<h:inputText id="idName" styleClass="form-control" value="#{postController.comment.name}"></h:inputText>
+					</div>
+					<div class="form-group">
+						<h:outputLabel value="#{msg['label.comment']}"></h:outputLabel>
+						<h:inputTextarea styleClass="form-control" value="#{postController.comment.comment}" />
+					</div>
+					<h:commandButton  actionListener="#{postController.addComment}">
+						<f:ajax execute="idName" render="ajaxComment"></f:ajax>
+					</h:commandButton>
+				</h:panelGroup>
+			</h:form>
 		</div>
 		</h:panelGroup>
+
 	</ui:define>
 	
 </ui:composition>

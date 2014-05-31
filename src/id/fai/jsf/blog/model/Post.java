@@ -18,6 +18,7 @@ public class Post implements Serializable,Comparable<Post>{
 	private String post;
 	private Date creationDate=new Date();
 	private String username;
+	
 	private SortedSet<Comment> commentList=new TreeSet<Comment>();
 	private List<Category> categories = new ArrayList<Post.Category>();
 	
