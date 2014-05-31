@@ -22,41 +22,6 @@
 		<div class="row">
 		
 		</div>
-		<div class="row">
-			<div class="col-md-6">
-			<h:form>
-				<h:panelGroup id="commentPanel">
-					<div class="page-header">
-						<h4>Comments:</h4>
-					</div>
-					<h:dataTable value="#{postController.postComments}" var="comment" width="100%">
-						<h:column>
-							<hr/>
-							<strong><h:outputText value="#{comment.name}" ></h:outputText></strong>
-							<br />
-							<h:outputText value="#{comment.comment}"></h:outputText>
-							<hr/>
-						</h:column>
-					</h:dataTable>
-				</h:panelGroup>
-		
-				<div class="form-group">
-					<h:outputLabel value="Name"></h:outputLabel>
-					<h:inputText styleClass="form-control" value="#{postController.comment.name}"></h:inputText>
-				</div>
-				<div class="form-group">
-					<h:outputLabel value="Comment"></h:outputLabel>
-					<h:inputTextarea styleClass="form-control" value="#{postController.comment.comment}"></h:inputTextarea>
-				</div>
-				<div class="form-group">
-					<h:commandButton styleClass="btn btn-primary" value="Send Comment" actionListener="#{postController.addComment}">
-						<f:ajax render="@form" execute="@form"></f:ajax>
-					</h:commandButton>
-					<h:commandButton styleClass="btn btn-default" value="Reset"></h:commandButton>
-				</div>
-			</h:form>
-			</div>
-		</div>
 		</h:panelGroup>
 	</ui:define>
 	

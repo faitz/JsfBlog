@@ -10,7 +10,6 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
 
 public class PostController implements Serializable {
 
@@ -22,19 +21,10 @@ public class PostController implements Serializable {
 	
 	private boolean authorized = true;
 	
-	private Comment comment = new Comment();
 	
 	private Post post;
 	
 	
-	public void addComment(ActionEvent event){
-		post.addComment(comment);
-		comment = new Comment();
-	}
-	
-	public void resetComment(ActionEvent event){
-		comment = new Comment();
-	}
 	
 	public List<Comment> getPostComments(){
 		return new LinkedList<Comment>(post.getCommentList());
@@ -53,14 +43,6 @@ public class PostController implements Serializable {
 			authorized = false;
 		}
 		return authorized;
-	}
-	
-	public Comment getComment() {
-		return comment;
-	}
-	
-	public void setComment(Comment comment) {
-		this.comment = comment;
 	}
 	
 	public PostDao getPostDao() {
